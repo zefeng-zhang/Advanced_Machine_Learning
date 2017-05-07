@@ -118,7 +118,7 @@ def main():
             if j != i:
                 wij = compute_user_similarity(user_ratings[i], user_ratings[j], \
                                               ave_ratings[i], ave_ratings[j]) 
-                term2 += wij * (user_ratings[j][k] - ave_ratings[j]) # complexity: n
+                term2 += wij * (user_ratings[j][k] - ave_ratings[j])
                 w_sum += abs(wij)
         if abs(w_sum) > epsilon:
             Rik_fitted = ave_ratings[i] + 1.0 / w_sum * term2
