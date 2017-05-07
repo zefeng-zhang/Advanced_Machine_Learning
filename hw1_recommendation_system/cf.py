@@ -62,6 +62,7 @@ def compute_average_user_ratings(user_ratings):
 
 def compute_user_similarity(d1, d2, ave_rat1, ave_rat2):
     """ Computes similarity between two users
+        Complexity: N^2 * K
 
         Input: d1, d2, (dictionary of user ratings per user) 
             ave_rat1, ave_rat2 average rating per user (float)
@@ -112,11 +113,9 @@ def main():
         """ Predict movie ratings based on user similarity """
         w_sum = 0.0
         term2 = 0.0
-        # complexity: n
+        # complexity: N
         for j in movie_ratings[k]: 
-            if j != i: 
-            # exclude user i itself
-                # complexity: k * (2k + 5)
+            if j != i:
                 wij = compute_user_similarity(user_ratings[i], user_ratings[j], \
                                               ave_ratings[i], ave_ratings[j]) 
                 term2 += wij * (user_ratings[j][k] - ave_ratings[j]) # complexity: n
