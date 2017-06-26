@@ -66,7 +66,7 @@ def report(y, y_pred):
     """
     print "\naccuracy = {}".format( 1.0 * np.sum(np.array(y) == np.array(y_pred)) / len(y) )
 
-if _name_ == "__main__":
+if __name__ == '__main__':
     train, test, x_train, y_train, x_test, y_test = parse_data("pima-indians-diabetes.data.txt")
     summaries = get_summaries(train)
     y_pred = prediction(summaries, x_test)
